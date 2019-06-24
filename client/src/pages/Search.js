@@ -1,43 +1,32 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
+//import API from "../utils/API";
 //import DeleteBtn from "../components/DeleteBtn";
-import { Col, Row, Container } from "../components/Grid";
+//import { Col, Row, Container } from "../components/Grid";
 //import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import Form from "../components/Form";
+import Card from "../components/Card";
+import Footer from "../components/Footer";
+import Nav from "../components/Nav";
+import Wrapper from "../components/Wrapper";
+//import Book from "../Book";
 
 class Search extends Component {
   state = {
-    books: []
+    books: [],
+    q: "",
   };
 
-  componentDidMount() {
-    this.loadBooks();
-  }
-
-  loadBooks = () => {
-    API.getBooks()
-      .then(res => this.setState({ books: res.data }))
-      .catch(err => console.log(err));
-  };
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
+      <Wrapper>
+          <Nav />
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+              <h1 className="text-center">Book-Search</h1>
             </Jumbotron>
-            <form>
-              <Input name="title" placeholder="Title (required)" />
-              <Input name="author" placeholder="Author (required)" />
-              <TextArea name="synopsis" placeholder="Synopsis (Optional)" />
-              <FormBtn>Submit Book</FormBtn>
-            </form>
-          </Col>
-          </Row>
-      </Container>
+            <Footer />
+     </Wrapper>
     );
   }
 }
