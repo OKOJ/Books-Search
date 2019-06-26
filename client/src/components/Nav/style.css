@@ -1,6 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
 
+.navbar{
+    background-color: darkkhaki;
+    mix-blend-mode: screen;
+    color: black;
+    /* position: fixed;
+    width: 100%;
+    margin-bottom: 150px; */
+
+}
+
 .navbar-brand{
     font-family: 'Fjalla One', sans-serif;
+    color: ghostwhite;
     font-size: 30px;
+}
+
+.nav-link{
+    font-size: 25px;
+    color: ghostwhite;
 }

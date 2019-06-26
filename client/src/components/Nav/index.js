@@ -4,9 +4,9 @@ import "./style.css";
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark warning">
+    <nav className="navbar navbar-expand-lg">
 
-    <a className="navbar-brand" href="#"><img src="https://img.icons8.com/color/48/000000/open-book.png"></img>BOOK-SEARCH</a>
+    <a className="navbar-brand" href="/"><img src="https://img.icons8.com/color/38/000000/google-logo.png" alt=""></img>  BOOK-SEARCH</a>
 
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
     aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">

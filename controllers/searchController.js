@@ -16,9 +16,9 @@ module.exports = {
             result.volumeInfo.description &&
             result.volumeInfo.imageLink &&
             result.volumeInfo.imageLink.thumbnail
-        )).then(saved =>
+        )).then(apiBooks =>
             db.Book.find().then(dbBooks =>
-                saved.filter(saved => dbBooks.every(dbBook => dbBook.googvleId.toString() !== saved.id))))
+                apiBooks.filter(apiBook => dbBooks.every(dbBook => dbBook.googleId.toString() !== apiBook.id))))
                 .then(books => res.json(books))
                 .catch(err => res.status(442).json(err));
     }

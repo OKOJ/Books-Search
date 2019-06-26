@@ -4,7 +4,7 @@ import "./style.css"
 function Footer(){
     return(
         <footer className="footer-copyright py-3">
-            <p>Build with <img src="https://img.icons8.com/ios/25/000000/react-native.png"></img></p>
+            <p>Build with React</p>
         </footer>
     )
 }

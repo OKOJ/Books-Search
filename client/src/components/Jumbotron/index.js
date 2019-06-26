@@ -4,8 +4,8 @@ import "./style.css";
 function Jumbotron(props) {
   return (
     <div className="jumbotron jumbotron-fluid text-center">
-      <h1>React <img src="https://img.icons8.com/color/48/000000/google-logo.png"></img>  Books Search</h1>
-      <h4>Search and Save Books of Interest</h4>
+      <h1><strong>Search and Save Books of Interest</strong></h1>
+      <h4>google books search build with react </h4>
     </div>
   );
 }

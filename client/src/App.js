@@ -1,17 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Search from "./pages/Search";
+import Home from "./pages/Home";
 import Saved from "./pages/Saved";
 
 function App() {
   return (
+    
     <Router>
-      <div>
+      {/* <div className="row"> */}
         <Switch>
-          <Route exact path="/" component={Search} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/saved" component={Saved} />
         </Switch>
-      </div>
+      {/* </div> */}
     </Router>
   );
 }
