@@ -1,20 +1,9 @@
 import axios from "axios";
 
+// The getRecipes method retrieves recipes from the server
+// It accepts a "query" or term to search the recipe api for
 export default {
-  // Gets all books from google
-  getBooks: function(q) {
-    return axios.get("/api/google", { params: { q: "title:" + q } });
-  },
-  // Gets all saved books
-  getSavedBook: function() {
-    return axios.get("/api/books");
-  },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
-  },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+  getRecipes: function(query) {
+    return axios.get("/api/recipes", { params: { q: query } });
   }
 };

@@ -2,18 +2,26 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Saved from "./pages/Saved";
+import Nav from "./components/Nav";
+//import Footer from "./components/Footer";
+import Wrapper from "./components/Wrapper";
+
 
 function App() {
   return (
-    
+     <Wrapper>
     <Router>
-      {/* <div className="row"> */}
+      <div >
+       
+        <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/saved" component={Saved} />
         </Switch>
-      {/* </div> */}
+        {/* <Footer /> */}
+      </div>
     </Router>
+    </Wrapper>
   );
 }
 
