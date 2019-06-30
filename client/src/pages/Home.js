@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-//import Nav from "../components/Nav";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import API from "../utils/API";
-import { RecipeList, RecipeListItem } from "../components/RecipeList";
+import { BookList, BookListItem } from "../components/BookList";
 import { Container, Row, Col } from "../components/Grid";
 
-class App extends Component {
+class Home extends Component {
   state = {
-    recipes: [],
-    recipeSearch: ""
+    books: [],
+    bookSearch: ""
   };
 
   handleInputChange = event => {
@@ -27,18 +26,20 @@ class App extends Component {
    // console.log(res.data )
     // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
-    API.getRecipes(this.state.recipeSearch)
+    API.getRecipes(this.state.bookSearch)
       .then(res => {
         console.log("get it");
-        console.log(this.state)
-        this.setState({ recipes: res.data })})
-      .catch(err => console.log(err));
+        console.log( res.data )
+        this.setState({ books: res.data })})
+        .catch(() => this.setState({
+          books:[]
+        })
+        );
   };
 
   render() {
     return (
       <div>
-        {/* <Nav /> */}
         <Jumbotron />
         <Container>
           <Row>
@@ -48,10 +49,10 @@ class App extends Component {
                   <Row>
                     <Col size="xs-9 sm-10">
                       <Input
-                        name="recipeSearch"
-                        value={this.state.recipeSearch}
+                        name="bookSearch"
+                        value={this.state.bookSearch}
                         onChange={this.handleInputChange}
-                        placeholder="Search For a Recipe"
+                        placeholder="Search For a Book"
                       />
                     </Col>
                     <Col size="xs-3 sm-2">
@@ -70,22 +71,23 @@ class App extends Component {
           </Row>
           <Row>
             <Col size="xs-12">
-              {!this.state.recipes.length ? (
-                <h1 className="text-center">No Recipes to Display</h1>
+              {!this.state.books.length ? (
+                <h1 className="text-center">Nothing to Display</h1>
               ) : (
-                <RecipeList>
-                  {this.state.recipes.map(recipe => {
+                <BookList>
+                  {this.state.books.map(book => {
                     return (
-                      <RecipeListItem
-                        key={recipe.title}
-                        title={recipe.title}
-                        href={recipe.href}
-                        ingredients={recipe.ingredients}
-                        thumbnail={recipe.thumbnail}
+                      <BookListItem
+                        key={book.id}
+                        title={book.title}
+                        authors={book.authors.join(",")}
+                        link={book.infoLink}
+                        description={book.description}
+                        image={book.imageLinks.thumbnail}
                       />
                     );
                   })}
-                </RecipeList>
+                </BookList>
               )}
             </Col>
           </Row>
@@ -95,4 +97,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;

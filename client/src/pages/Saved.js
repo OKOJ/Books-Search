@@ -6,8 +6,8 @@ import Jumbotron from "../components/Jumbotron";
 //import { List, ListItem } from "../components/List";
 //import { Input, TextArea, FormBtn } from "../components/Form";
 //import BookSearch from "../components/Search";
-//import Footer from "../components/Footer";
-import Nav from "../components/Nav";
+// import Footer from "../components/Footer";
+//import Nav from "../components/Nav";
 //import Book from "../components/Book";
 
 
@@ -19,7 +19,7 @@ class Saved extends Component {
     render() {
       return (
         <div>
-            <Nav />
+            {/* <Nav /> */}
               <Jumbotron />
               <div className="container">
              {/* <Book /> */}
