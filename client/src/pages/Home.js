@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
+//import Jumbotron from "../components/Jumbotron";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import API from "../utils/API";
@@ -26,13 +26,14 @@ class Home extends Component {
    // console.log(res.data )
     // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
-    API.getRecipes(this.state.bookSearch)
+   API.getBooks(this.state.bookSearch)
       .then(res => {
         console.log("get it");
         console.log( res.data )
         this.setState({ books: res.data })})
         .catch(() => this.setState({
-          books:[]
+          books:[],
+          massege:"no books found"
         })
         );
   };
@@ -40,7 +41,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Jumbotron />
+        {/* <Jumbotron /> */}
         <Container>
           <Row>
             <Col size="md-12">
@@ -72,18 +73,19 @@ class Home extends Component {
           <Row>
             <Col size="xs-12">
               {!this.state.books.length ? (
-                <h1 className="text-center">Nothing to Display</h1>
+                <h1 className="text-center">{this.state.message}</h1>
               ) : (
                 <BookList>
                   {this.state.books.map(book => {
                     return (
                       <BookListItem
+                      
                         key={book.id}
-                        title={book.title}
-                        authors={book.authors.join(",")}
-                        link={book.infoLink}
-                        description={book.description}
-                        image={book.imageLinks.thumbnail}
+                        title={book.volumeInfo.title}
+                        authors={book.volumeInfo.authors.join(", ")}
+                        link={book.volumeInfo.infoLink}
+                        description={book.volumeInfo.description}
+                        image={book.volumeInfo.imageLinks.thumbnail}
                       />
                     );
                   })}

@@ -1,9 +1,10 @@
 const express = require("express");
-const path = require("path");
+
 const mongoose = require("mongoose");
+const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const apiRoutes = require("./routes/apiRoutes");
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -14,10 +15,21 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Use apiRoutes
-app.use("/api", apiRoutes);
+app.use(routes);
+
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
+// mongoose.connect(
+//   process.env.MONGODB_URI || "mongodb://user1:password1@ds245677.mlab.com:45677/heroku_lfqf0fqn",
+//   {
+//     useCreateIndex: true,
+//     useNewUrlParser: true
+//   }
+// );
+// process.on('uncaughtException', function (err) {
+//   console.log(err);
+// }); 
 
 // Send every request to the React app
 // Define any API routes before this runs

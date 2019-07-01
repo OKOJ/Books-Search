@@ -5,6 +5,7 @@ import Saved from "./pages/Saved";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
+import Jumbotron from "./components/Jumbotron";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <Router>
       <div >
         <Nav />
+        <Jumbotron />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/saved" component={Saved} />

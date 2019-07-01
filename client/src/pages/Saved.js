@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
 //import API from "../utils/API";
 //import DeleteBtn from "../components/DeleteBtn";
 //import { Col, Row, Container } from "../components/Grid";
@@ -20,7 +19,7 @@ class Saved extends Component {
       return (
         <div>
             {/* <Nav /> */}
-              <Jumbotron />
+              {/* <Jumbotron /> */}
               <div className="container">
              {/* <Book /> */}
              </div>
