@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const savedController = require("../../controllers/savedController");
-const searchController = require("../../controllers/searchController");
+const savedController = require("../../controllers/saved");
+//const searchController = require("../../controllers/search");
 router.route("/")
   .get(savedController.findAll)
   .post(savedController.create);

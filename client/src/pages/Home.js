@@ -30,7 +30,7 @@ class Home extends Component {
       .then(res => {
         console.log("get it");
         console.log( res.data )
-        this.setState({ books: res.data })})
+        this.setState({ books: res.data.items })})
         .catch(() => this.setState({
           books:[],
           massege:"no books found"
@@ -79,7 +79,6 @@ class Home extends Component {
                   {this.state.books.map(book => {
                     return (
                       <BookListItem
-                      
                         key={book.id}
                         title={book.volumeInfo.title}
                         authors={book.volumeInfo.authors.join(", ")}
