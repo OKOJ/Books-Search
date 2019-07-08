@@ -25,7 +25,7 @@ const bookSchema = new Schema({
     id:{
         type: String,
         require:true,
-        unique: true
+        // unique: true
     }
 
 });

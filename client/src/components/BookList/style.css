@@ -2,5 +2,11 @@
     margin-top: 20px;
     margin-bottom: 150px;
     width: 95%;
-    z-index: 10;
+    
+}
+.list-group-item{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    background-color: cornsilk;
+    /* overscroll-behavior-x: 10; */
 }

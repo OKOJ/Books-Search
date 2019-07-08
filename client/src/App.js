@@ -10,19 +10,21 @@ import Jumbotron from "./components/Jumbotron";
 
 function App() {
   return (
-     <Wrapper>
+     
     <Router>
       <div >
+        <Wrapper>
         <Nav />
         <Jumbotron />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/saved" component={Saved} />
         </Switch>
+        </Wrapper>
         <Footer />
       </div>
     </Router>
-    </Wrapper>
+    
   );
 }
 

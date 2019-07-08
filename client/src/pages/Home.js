@@ -6,6 +6,7 @@ import API from "../utils/API";
 import { BookList, BookListItem } from "../components/BookList";
 import { Container, Row, Col } from "../components/Grid";
 
+
 class Home extends Component {
   state = {
     books: [],
@@ -37,6 +38,21 @@ class Home extends Component {
         })
         );
   };
+
+  handleBookSave = id => {
+    const book = this.state.books.find(book => book.id === id);
+
+    API.saveBook({
+      googleId: book.id,
+      title: book.volumeInfo.title,
+      subtitle: book.volumeInfo.subtitle,
+      link: book.volumeInfo.infoLink,
+      authors: book.volumeInfo.authors,
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.thumbnail
+    }).then(() => this.getBooks());
+  };
+
 
   render() {
     return (
@@ -85,7 +101,10 @@ class Home extends Component {
                         link={book.volumeInfo.infoLink}
                         description={book.volumeInfo.description}
                         image={book.volumeInfo.imageLinks.thumbnail}
-                      />
+                         
+                      //  onClick={handleBookSave}
+  
+                     />
                     );
                   })}
                 </BookList>
